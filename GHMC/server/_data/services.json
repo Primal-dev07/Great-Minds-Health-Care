@@ -1,0 +1,107 @@
+[
+  {
+    "_id": "5d7a514b5d2c12c7449be049",
+    "name": "Cardiac Consultation",
+    "description": "Comprehensive evaluation of heart health including medical history review, physical examination, and diagnostic tests. Our cardiologists provide expert assessment and personalized treatment plans for various heart conditions.",
+    "category": "cardiology",
+    "price": 250,
+    "duration": 60,
+    "features": [
+      "Complete cardiac evaluation",
+      "ECG analysis",
+      "Blood pressure monitoring",
+      "Personalized treatment plan",
+      "Follow-up recommendations"
+    ],
+    "doctors": ["5d7a514b5d2c12c7449be047"],
+    "isAvailable": true
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be04a",
+    "name": "Echocardiogram",
+    "description": "Non-invasive ultrasound procedure that examines the heart's structure and function. This test provides detailed images of the heart's chambers, valves, walls, and blood vessels, helping to diagnose various heart conditions.",
+    "category": "cardiology",
+    "price": 350,
+    "duration": 45,
+    "features": [
+      "Real-time heart imaging",
+      "Valve function assessment",
+      "Blood flow evaluation",
+      "Heart chamber size measurement",
+      "Detailed report with interpretation"
+    ],
+    "doctors": ["5d7a514b5d2c12c7449be047"],
+    "isAvailable": true
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be04b",
+    "name": "Pediatric Check-up",
+    "description": "Comprehensive health assessment for children of all ages. Our pediatricians monitor growth and development, provide immunizations, screen for common childhood conditions, and offer guidance on nutrition and preventive care.",
+    "category": "pediatrics",
+    "price": 180,
+    "duration": 45,
+    "features": [
+      "Growth and development assessment",
+      "Immunization review and administration",
+      "Physical examination",
+      "Developmental milestone evaluation",
+      "Nutritional guidance",
+      "Parental education and support"
+    ],
+    "doctors": ["5d7a514b5d2c12c7449be048"],
+    "isAvailable": true
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be04c",
+    "name": "Child Vaccination",
+    "description": "Administration of age-appropriate vaccines according to the recommended immunization schedule. Our pediatric team ensures safe vaccination practices and provides education on vaccine benefits and potential side effects.",
+    "category": "pediatrics",
+    "price": 120,
+    "duration": 30,
+    "features": [
+      "Age-appropriate vaccine administration",
+      "Immunization record update",
+      "Post-vaccination care instructions",
+      "Side effect monitoring",
+      "Next vaccination schedule planning"
+    ],
+    "doctors": ["5d7a514b5d2c12c7449be048"],
+    "isAvailable": true
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be04d",
+    "name": "General Health Check-up",
+    "description": "Comprehensive physical examination to assess overall health status. Includes vital signs measurement, system review, basic laboratory tests, and personalized health recommendations.",
+    "category": "general",
+    "price": 200,
+    "duration": 60,
+    "features": [
+      "Complete physical examination",
+      "Vital signs assessment",
+      "Basic laboratory tests",
+      "Health risk assessment",
+      "Preventive care recommendations",
+      "Lifestyle counseling"
+    ],
+    "doctors": ["5d7a514b5d2c12c7449be047", "5d7a514b5d2c12c7449be048"],
+    "isAvailable": true
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be04e",
+    "name": "Telemedicine Consultation",
+    "description": "Virtual healthcare consultation with our qualified physicians via secure video conferencing. Convenient for follow-ups, minor health concerns, prescription refills, and medical advice without visiting the clinic.",
+    "category": "general",
+    "price": 150,
+    "duration": 30,
+    "features": [
+      "Secure video consultation",
+      "Medical history review",
+      "Symptom assessment",
+      "Treatment recommendations",
+      "Prescription services when appropriate",
+      "Follow-up scheduling"
+    ],
+    "doctors": ["5d7a514b5d2c12c7449be047", "5d7a514b5d2c12c7449be048"],
+    "isAvailable": true
+  }
+]
