@@ -7,10 +7,7 @@
           <div class="dashboard-sidebar">
             <div class="user-profile">
               <div class="user-avatar">
-                <img
-                  :src="userAvatar"
-                  :alt="currentUser.firstName + ' ' + currentUser.lastName"
-                >
+                <img :src="userAvatar" :alt="currentUser.firstName + ' ' + currentUser.lastName" />
               </div>
               <h3 class="user-name">{{ currentUser.firstName }} {{ currentUser.lastName }}</h3>
               <p class="user-email">{{ currentUser.email }}</p>
@@ -18,22 +15,22 @@
 
             <div class="sidebar-menu">
               <router-link to="/dashboard" class="menu-item" exact-active-class="active">
-                <i class="fa fa-tachometer"></i> Dashboard
+                <i class="fas fa-tachometer-alt"></i> Dashboard
               </router-link>
               <router-link to="/appointments" class="menu-item" active-class="active">
-                <i class="fa fa-calendar"></i> My Appointments
+                <i class="fas fa-calendar"></i> My Appointments
               </router-link>
               <router-link to="/appointments/book" class="menu-item" active-class="active">
-                <i class="fa fa-plus-circle"></i> Book Appointment
+                <i class="fas fa-plus-circle"></i> Book Appointment
               </router-link>
               <router-link to="/medical-records" class="menu-item" active-class="active">
-                <i class="fa fa-file-text-o"></i> Medical Records
+                <i class="fas fa-file-medical"></i> Medical Records
               </router-link>
               <router-link to="/profile" class="menu-item" active-class="active">
-                <i class="fa fa-user"></i> My Profile
+                <i class="fas fa-user"></i> My Profile
               </router-link>
               <a href="#" class="menu-item" @click.prevent="handleLogout">
-                <i class="fa fa-sign-out"></i> Logout
+                <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
           </div>
@@ -104,7 +101,9 @@
             <div class="section">
               <div class="section-header">
                 <h2 class="section-title">Upcoming Appointments</h2>
-                <router-link to="/appointments" class="btn btn-sm btn-outline-primary">View All</router-link>
+                <router-link to="/appointments" class="btn btn-sm btn-outline-primary"
+                  >View All</router-link
+                >
               </div>
 
               <div v-if="loading" class="text-center py-4">
@@ -120,7 +119,11 @@
               </div>
 
               <div v-else>
-                <div v-for="appointment in upcomingAppointments.slice(0, 3)" :key="appointment.id" class="appointment-item">
+                <div
+                  v-for="appointment in upcomingAppointments.slice(0, 3)"
+                  :key="appointment.id"
+                  class="appointment-item"
+                >
                   <div class="appointment-date">
                     <div class="date-day">{{ formatDay(appointment.date) }}</div>
                     <div class="date-month">{{ formatMonth(appointment.date) }}</div>
@@ -152,7 +155,9 @@
             <div class="section">
               <div class="section-header">
                 <h2 class="section-title">Health Tips</h2>
-                <router-link to="/health-tips" class="btn btn-sm btn-outline-primary">View All Tips</router-link>
+                <router-link to="/health-tips" class="btn btn-sm btn-outline-primary"
+                  >View All Tips</router-link
+                >
               </div>
 
               <div class="row">
@@ -179,7 +184,7 @@ import HealthTipCard from '../components/ui/HealthTipCard.vue'
 export default {
   name: 'Dashboard',
   components: {
-    HealthTipCard
+    HealthTipCard,
   },
   data() {
     return {
@@ -187,22 +192,25 @@ export default {
       healthTips: [
         {
           title: 'Stay Active',
-          description: 'Regular physical activity can help prevent heart disease and improve your overall health.',
-          icon: 'fa fa-heartbeat',
-          category: 'Fitness'
+          description:
+            'Regular physical activity can help prevent heart disease and improve your overall health.',
+          icon: 'fas fa-heartbeat',
+          category: 'Fitness',
         },
         {
           title: 'Eat Healthy',
-          description: 'A balanced diet rich in fruits, vegetables, and whole grains is essential for good health.',
-          icon: 'fa fa-apple',
-          category: 'Nutrition'
+          description:
+            'A balanced diet rich in fruits, vegetables, and whole grains is essential for good health.',
+          icon: 'fas fa-apple-alt',
+          category: 'Nutrition',
         },
         {
           title: 'Get Enough Sleep',
-          description: 'Aim for 7-9 hours of quality sleep each night to support your physical and mental health.',
-          icon: 'fa fa-bed',
-          category: 'Sleep'
-        }
+          description:
+            'Aim for 7-9 hours of quality sleep each night to support your physical and mental health.',
+          icon: 'fas fa-bed',
+          category: 'Sleep',
+        },
       ],
       // Mock appointments data for demo
       mockAppointments: [
@@ -213,13 +221,13 @@ export default {
           status: 'confirmed',
           service: {
             title: 'General Health Check-up',
-            id: 'service-001'
+            id: 'service-001',
           },
           doctor: {
             name: 'John Johnson',
             id: 'doctor-001',
-            specialization: 'Cardiology'
-          }
+            specialization: 'Cardiology',
+          },
         },
         {
           id: 'appt-002',
@@ -228,13 +236,13 @@ export default {
           status: 'confirmed',
           service: {
             title: 'Dental Cleaning',
-            id: 'service-002'
+            id: 'service-002',
           },
           doctor: {
             name: 'Sarah Smith',
             id: 'doctor-002',
-            specialization: 'Dentistry'
-          }
+            specialization: 'Dentistry',
+          },
         },
         {
           id: 'appt-003',
@@ -243,21 +251,21 @@ export default {
           status: 'completed',
           service: {
             title: 'Eye Examination',
-            id: 'service-003'
+            id: 'service-003',
           },
           doctor: {
             name: 'Michael Brown',
             id: 'doctor-003',
-            specialization: 'Ophthalmology'
-          }
-        }
-      ]
+            specialization: 'Ophthalmology',
+          },
+        },
+      ],
     }
   },
   computed: {
     ...mapGetters({
       user: 'auth/currentUser',
-      isAuthenticated: 'auth/isAuthenticated'
+      isAuthenticated: 'auth/isAuthenticated',
     }),
     currentUser() {
       // If we have a user from auth store, use it, otherwise use the mock data
@@ -266,8 +274,8 @@ export default {
           firstName: this.user.name ? this.user.name.split(' ')[0] : 'Demo',
           lastName: this.user.name ? this.user.name.split(' ')[1] || '' : 'User',
           email: this.user.email || 'demo@example.com',
-          avatar: this.user.profileImage
-        };
+          avatar: this.user.profileImage,
+        }
       }
 
       // Fallback to mock data
@@ -275,43 +283,58 @@ export default {
         firstName: 'Demo',
         lastName: 'User',
         email: 'demo@example.com',
-        avatar: null
-      };
+        avatar: null,
+      }
     },
     userAvatar() {
       // Always use a placeholder image for the demo
-      return 'https://via.placeholder.com/100x100';
+      return 'https://via.placeholder.com/100x100'
     },
     upcomingAppointments() {
       const today = new Date()
       today.setHours(0, 0, 0, 0)
 
       // Use mock appointments for demo
-      return this.mockAppointments.filter(appointment => {
-        const appointmentDate = new Date(appointment.date)
-        return appointmentDate >= today && appointment.status !== 'cancelled'
-      }).sort((a, b) => new Date(a.date) - new Date(b.date))
+      return this.mockAppointments
+        .filter((appointment) => {
+          const appointmentDate = new Date(appointment.date)
+          return appointmentDate >= today && appointment.status !== 'cancelled'
+        })
+        .sort((a, b) => new Date(a.date) - new Date(b.date))
     },
     pastAppointments() {
       const today = new Date()
       today.setHours(0, 0, 0, 0)
 
       // Use mock appointments for demo
-      return this.mockAppointments.filter(appointment => {
+      return this.mockAppointments.filter((appointment) => {
         const appointmentDate = new Date(appointment.date)
         return appointmentDate < today || appointment.status === 'completed'
       })
-    }
+    },
   },
   methods: {
     ...mapActions({
-      logoutAction: 'auth/logout'
+      logoutAction: 'auth/logout',
     }),
     formatDay(dateString) {
       return new Date(dateString).getDate()
     },
     formatMonth(dateString) {
-      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      const months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ]
       return months[new Date(dateString).getMonth()]
     },
     formatTime(timeString) {
@@ -342,15 +365,15 @@ export default {
       this.loading = true
       // Simulate API call delay
       setTimeout(() => {
-        console.log('Mock appointments loaded');
-        this.loading = false;
-      }, 1000);
-    }
+        console.log('Mock appointments loaded')
+        this.loading = false
+      }, 1000)
+    },
   },
   created() {
     // For demo, just use the mock data
-    this.fetchAppointmentsDemo();
-  }
+    this.fetchAppointmentsDemo()
+  },
 }
 </script>
 
@@ -620,13 +643,15 @@ export default {
   color: #333;
 }
 
-.appointment-doctor, .appointment-time {
+.appointment-doctor,
+.appointment-time {
   font-size: 0.9rem;
   color: #666;
   margin-bottom: 5px;
 }
 
-.appointment-doctor i, .appointment-time i {
+.appointment-doctor i,
+.appointment-time i {
   margin-right: 5px;
   color: #007bff;
 }

@@ -8,7 +8,8 @@
             <div class="hero-content">
               <h1 class="hero-title">Health Tips & Articles</h1>
               <p class="hero-text">
-                Explore our collection of expert-written health articles, tips, and resources to help you live a healthier life.
+                Explore our collection of expert-written health articles, tips, and resources to
+                help you live a healthier life.
               </p>
               <div class="search-container">
                 <form @submit.prevent="searchArticles">
@@ -18,7 +19,7 @@
                       class="form-control"
                       placeholder="Search health tips..."
                       v-model="searchQuery"
-                    >
+                    />
                     <button class="btn btn-primary" type="submit">
                       <i class="fa fa-search"></i>
                     </button>
@@ -29,7 +30,10 @@
           </div>
           <div class="col-lg-6 d-none d-lg-block">
             <div class="hero-image">
-              <img src="https://placehold.co/800x600/e1ddf0/333333.png?text=Health+Tips" alt="Health Tips and Articles">
+              <img
+                src="https://placehold.co/800x600/e1ddf0/333333.png?text=Health+Tips"
+                alt="Health Tips and Articles"
+              />
             </div>
           </div>
         </div>
@@ -88,7 +92,7 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="featured-image">
-                <img :src="featuredArticle.image" :alt="featuredArticle.title">
+                <img :src="featuredArticle.image" :alt="featuredArticle.title" />
                 <div class="featured-badge">Featured</div>
               </div>
             </div>
@@ -99,15 +103,18 @@
                 <p class="featured-summary">{{ featuredArticle.summary }}</p>
                 <div class="featured-meta">
                   <div class="meta-item">
-                    <i class="fa fa-calendar"></i>
+                    <i class="fas fa-calendar"></i>
                     <span>{{ formatDate(featuredArticle.date) }}</span>
                   </div>
                   <div class="meta-item">
-                    <i class="fa fa-clock-o"></i>
+                    <i class="far fa-clock"></i>
                     <span>{{ featuredArticle.readTime }} min read</span>
                   </div>
                 </div>
-                <router-link :to="{ name: 'HealthTipDetail', params: { id: featuredArticle.id } }" class="btn btn-primary">
+                <router-link
+                  :to="{ name: 'HealthTipDetail', params: { id: featuredArticle.id } }"
+                  class="btn btn-primary"
+                >
                   Read Article
                 </router-link>
               </div>
@@ -135,18 +142,20 @@
           </div>
           <h3>No articles found</h3>
           <p>We couldn't find any articles matching your search criteria.</p>
-          <button class="btn btn-outline-primary" @click="resetFilters">
-            Clear Filters
-          </button>
+          <button class="btn btn-outline-primary" @click="resetFilters">Clear Filters</button>
         </div>
 
         <!-- Articles Grid -->
         <div v-else class="row">
-          <div v-for="article in paginatedArticles" :key="article.id" class="col-lg-4 col-md-6 mb-4">
+          <div
+            v-for="article in paginatedArticles"
+            :key="article.id"
+            class="col-lg-4 col-md-6 mb-4"
+          >
             <div class="article-card">
               <router-link :to="{ name: 'HealthTipDetail', params: { id: article.id } }">
                 <div class="article-image">
-                  <img :src="article.image" :alt="article.title">
+                  <img :src="article.image" :alt="article.title" />
                   <div class="article-category">{{ article.category }}</div>
                 </div>
                 <div class="article-content">
@@ -154,11 +163,11 @@
                   <p class="article-summary">{{ article.summary }}</p>
                   <div class="article-meta">
                     <div class="meta-item">
-                      <i class="fa fa-calendar"></i>
+                      <i class="fas fa-calendar"></i>
                       <span>{{ formatDate(article.date) }}</span>
                     </div>
                     <div class="meta-item">
-                      <i class="fa fa-clock-o"></i>
+                      <i class="far fa-clock"></i>
                       <span>{{ article.readTime }} min read</span>
                     </div>
                   </div>
@@ -174,7 +183,7 @@
             <ul class="pagination">
               <li class="page-item" :class="{ disabled: currentPage === 1 }">
                 <a class="page-link" href="#" @click.prevent="changePage(currentPage - 1)">
-                  <i class="fa fa-chevron-left"></i>
+                  <i class="fas fa-chevron-left"></i>
                 </a>
               </li>
               <li
@@ -187,7 +196,7 @@
               </li>
               <li class="page-item" :class="{ disabled: currentPage === totalPages }">
                 <a class="page-link" href="#" @click.prevent="changePage(currentPage + 1)">
-                  <i class="fa fa-chevron-right"></i>
+                  <i class="fas fa-chevron-right"></i>
                 </a>
               </li>
             </ul>
@@ -216,13 +225,22 @@
                     placeholder="Your email address"
                     v-model="email"
                     required
-                  >
+                  />
                   <button class="btn btn-primary" type="submit">
                     <span v-if="!subscribing">Subscribe</span>
-                    <span v-else class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <span
+                      v-else
+                      class="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
                   </button>
                 </div>
-                <div v-if="subscriptionMessage" class="subscription-message" :class="{ 'success': subscriptionSuccess }">
+                <div
+                  v-if="subscriptionMessage"
+                  class="subscription-message"
+                  :class="{ success: subscriptionSuccess }"
+                >
                   {{ subscriptionMessage }}
                 </div>
               </form>
@@ -254,7 +272,7 @@ export default {
         { name: 'Mental Health', count: 10 },
         { name: 'Wellness', count: 15 },
         { name: 'Cardiovascular Health', count: 6 },
-        { name: 'Preventive Care', count: 9 }
+        { name: 'Preventive Care', count: 9 },
       ],
       articles: [
         {
@@ -263,9 +281,10 @@ export default {
           category: 'Nutrition',
           date: '2023-05-10',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Healthy+Diet',
-          summary: 'Learn how to maintain a balanced diet and boost your immune system during these challenging times.',
+          summary:
+            'Learn how to maintain a balanced diet and boost your immune system during these challenging times.',
           readTime: 8,
-          featured: true
+          featured: true,
         },
         {
           id: 2,
@@ -273,8 +292,9 @@ export default {
           category: 'Fitness',
           date: '2023-04-28',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Exercise',
-          summary: 'Discover how physical activity can improve your mood, reduce anxiety, and boost overall mental wellbeing.',
-          readTime: 6
+          summary:
+            'Discover how physical activity can improve your mood, reduce anxiety, and boost overall mental wellbeing.',
+          readTime: 6,
         },
         {
           id: 3,
@@ -282,8 +302,9 @@ export default {
           category: 'Preventive Care',
           date: '2023-04-15',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Vaccination',
-          summary: 'Learn about how vaccines work, their importance for public health, and addressing common misconceptions.',
-          readTime: 10
+          summary:
+            'Learn about how vaccines work, their importance for public health, and addressing common misconceptions.',
+          readTime: 10,
         },
         {
           id: 4,
@@ -291,8 +312,9 @@ export default {
           category: 'Mental Health',
           date: '2023-03-15',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Stress+Management',
-          summary: 'Practical techniques and strategies to help you manage stress and improve your quality of life.',
-          readTime: 7
+          summary:
+            'Practical techniques and strategies to help you manage stress and improve your quality of life.',
+          readTime: 7,
         },
         {
           id: 5,
@@ -300,8 +322,9 @@ export default {
           category: 'Wellness',
           date: '2023-05-05',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Sleep',
-          summary: 'Discover why quality sleep is essential for your physical and mental health, and learn practical tips for improving your sleep habits.',
-          readTime: 6
+          summary:
+            'Discover why quality sleep is essential for your physical and mental health, and learn practical tips for improving your sleep habits.',
+          readTime: 6,
         },
         {
           id: 6,
@@ -309,8 +332,9 @@ export default {
           category: 'Cardiovascular Health',
           date: '2023-04-20',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Heart+Health',
-          summary: 'Learn about dietary patterns that support heart health and reduce the risk of cardiovascular disease.',
-          readTime: 7
+          summary:
+            'Learn about dietary patterns that support heart health and reduce the risk of cardiovascular disease.',
+          readTime: 7,
         },
         {
           id: 7,
@@ -318,8 +342,9 @@ export default {
           category: 'Nutrition',
           date: '2023-04-10',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Hydration',
-          summary: 'Understand the importance of proper hydration for overall health and learn how to maintain optimal fluid intake throughout the day.',
-          readTime: 5
+          summary:
+            'Understand the importance of proper hydration for overall health and learn how to maintain optimal fluid intake throughout the day.',
+          readTime: 5,
         },
         {
           id: 8,
@@ -327,8 +352,9 @@ export default {
           category: 'Fitness',
           date: '2023-03-25',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Fitness+Routine',
-          summary: 'Tips for creating an exercise routine that you can maintain long-term for better health and fitness results.',
-          readTime: 8
+          summary:
+            'Tips for creating an exercise routine that you can maintain long-term for better health and fitness results.',
+          readTime: 8,
         },
         {
           id: 9,
@@ -336,8 +362,9 @@ export default {
           category: 'Cardiovascular Health',
           date: '2023-03-10',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Blood+Pressure',
-          summary: 'Learn what your blood pressure numbers mean and how to maintain healthy levels through lifestyle changes.',
-          readTime: 6
+          summary:
+            'Learn what your blood pressure numbers mean and how to maintain healthy levels through lifestyle changes.',
+          readTime: 6,
         },
         {
           id: 10,
@@ -345,15 +372,16 @@ export default {
           category: 'Nutrition',
           date: '2023-02-28',
           image: 'https://placehold.co/400x300/e1ddf0/333333.png?text=Vitamins',
-          summary: 'A guide to understanding when supplements are necessary and how to choose the right ones for your health needs.',
-          readTime: 9
-        }
-      ]
+          summary:
+            'A guide to understanding when supplements are necessary and how to choose the right ones for your health needs.',
+          readTime: 9,
+        },
+      ],
     }
   },
   computed: {
     featuredArticle() {
-      return this.articles.find(article => article.featured)
+      return this.articles.find((article) => article.featured)
     },
     filteredArticles() {
       let filtered = [...this.articles]
@@ -361,21 +389,22 @@ export default {
       // Filter by search query
       if (this.searchQuery) {
         const query = this.searchQuery.toLowerCase()
-        filtered = filtered.filter(article =>
-          article.title.toLowerCase().includes(query) ||
-          article.summary.toLowerCase().includes(query) ||
-          article.category.toLowerCase().includes(query)
+        filtered = filtered.filter(
+          (article) =>
+            article.title.toLowerCase().includes(query) ||
+            article.summary.toLowerCase().includes(query) ||
+            article.category.toLowerCase().includes(query),
         )
       }
 
       // Filter by category
       if (this.selectedCategory !== 'all') {
-        filtered = filtered.filter(article => article.category === this.selectedCategory)
+        filtered = filtered.filter((article) => article.category === this.selectedCategory)
       }
 
       // Remove featured article from regular list if showing featured section
       if (this.featuredArticle && !this.searchQuery && this.selectedCategory === 'all') {
-        filtered = filtered.filter(article => article.id !== this.featuredArticle.id)
+        filtered = filtered.filter((article) => article.id !== this.featuredArticle.id)
       }
 
       // Sort articles
@@ -403,7 +432,7 @@ export default {
     },
     totalPages() {
       return Math.ceil(this.filteredArticles.length / this.articlesPerPage)
-    }
+    },
   },
   methods: {
     formatDate(dateString) {
@@ -425,7 +454,7 @@ export default {
         this.currentPage = page
         window.scrollTo({
           top: document.querySelector('.articles-section').offsetTop - 100,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
       }
     },
@@ -460,9 +489,10 @@ export default {
       }, 1500)
     },
     validateEmail(email) {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return re.test(String(email).toLowerCase())
-    }
+    },
   },
   mounted() {
     document.title = 'Health Tips & Articles - Great Minds Healthcare Center'
@@ -470,7 +500,9 @@ export default {
     // Check for query parameters
     const { category, search } = this.$route.query
     if (category) {
-      const validCategory = this.categories.find(c => c.name.toLowerCase() === category.toLowerCase())
+      const validCategory = this.categories.find(
+        (c) => c.name.toLowerCase() === category.toLowerCase(),
+      )
       if (validCategory) {
         this.selectedCategory = validCategory.name
       }
@@ -479,7 +511,7 @@ export default {
     if (search) {
       this.searchQuery = search
     }
-  }
+  },
 }
 </script>
 
@@ -799,7 +831,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.2) 100%);
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1071,7 +1103,7 @@ export default {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
   transition: all 0.4s ease;
 }
 

@@ -1,16 +1,12 @@
 <template>
   <div class="service-card">
     <div class="service-icon">
-      <img :src="`/src/assets/icons/${service.icon}`" :alt="service.title">
+      <img :src="`/src/assets/icons/${service.icon}`" :alt="service.title" />
     </div>
     <h3 class="service-title">{{ service.title }}</h3>
     <p class="service-description">{{ service.description }}</p>
-    <router-link
-      :to="link"
-      class="service-link"
-      v-if="link"
-    >
-      Learn More <i class="fa fa-arrow-right"></i>
+    <router-link :to="link" class="service-link" v-if="link">
+      Learn More <i class="fas fa-arrow-right"></i>
     </router-link>
   </div>
 </template>
@@ -21,13 +17,13 @@ export default {
   props: {
     service: {
       type: Object,
-      required: true
+      required: true,
     },
     link: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 }
 </script>
 
@@ -36,7 +32,9 @@ export default {
   background: linear-gradient(120deg, #ffffff, #e1ddf0);
   padding: 30px;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   text-align: center;
   height: 100%;

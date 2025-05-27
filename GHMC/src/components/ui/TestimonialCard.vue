@@ -2,24 +2,29 @@
   <div class="testimonial-card">
     <div class="testimonial-content">
       <div class="testimonial-quote">
-        <i class="fa fa-quote-left"></i>
+        <i class="fas fa-quote-left"></i>
       </div>
       <p class="testimonial-text">{{ testimonial.content }}</p>
       <div class="testimonial-rating">
         <i
           v-for="star in 5"
           :key="star"
-          class="fa"
-          :class="star <= testimonial.rating ? 'fa-star' : 'fa-star-o'"
+          class="fas"
+          :class="star <= testimonial.rating ? 'fa-star' : 'fa-star'"
+          :style="{ color: star <= testimonial.rating ? '#ffc107' : '#e4e5e9' }"
         ></i>
       </div>
     </div>
     <div class="testimonial-author">
       <div class="testimonial-avatar">
         <img
-          :src="testimonial.avatar ? `/src/assets/avatars/${testimonial.avatar}` : `/src/assets/health.png`"
+          :src="
+            testimonial.avatar
+              ? `/src/assets/avatars/${testimonial.avatar}`
+              : `/src/assets/health.png`
+          "
           :alt="testimonial.name"
-        >
+        />
       </div>
       <div class="testimonial-info">
         <h4 class="testimonial-name">{{ testimonial.name }}</h4>
@@ -35,8 +40,8 @@ export default {
   props: {
     testimonial: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     formatDate(dateString) {
@@ -44,8 +49,8 @@ export default {
 
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(dateString).toLocaleDateString(undefined, options)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -55,7 +60,9 @@ export default {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   padding: 30px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   height: 100%;
   display: flex;
   flex-direction: column;

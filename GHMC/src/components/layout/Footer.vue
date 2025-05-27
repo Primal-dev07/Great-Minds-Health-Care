@@ -7,7 +7,9 @@
           <div class="row align-items-center">
             <div class="col-lg-6">
               <h3 class="newsletter-title">Subscribe to Our Newsletter</h3>
-              <p class="newsletter-text">Stay updated with the latest health tips, services, and special offers.</p>
+              <p class="newsletter-text">
+                Stay updated with the latest health tips, services, and special offers.
+              </p>
             </div>
             <div class="col-lg-6">
               <form class="newsletter-form" @submit.prevent="subscribeNewsletter">
@@ -18,13 +20,22 @@
                     placeholder="Enter your email address"
                     v-model="email"
                     required
-                  >
+                  />
                   <button class="btn btn-primary" type="submit">
                     <span v-if="!subscribing">Subscribe</span>
-                    <span v-else class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <span
+                      v-else
+                      class="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
                   </button>
                 </div>
-                <div v-if="subscriptionMessage" class="subscription-message" :class="{ 'success': subscriptionSuccess }">
+                <div
+                  v-if="subscriptionMessage"
+                  class="subscription-message"
+                  :class="{ success: subscriptionSuccess }"
+                >
                   {{ subscriptionMessage }}
                 </div>
               </form>
@@ -41,26 +52,31 @@
           <!-- Company Info -->
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
             <div class="footer-brand">
-              <img src="/src/assets/GMHC.png" alt="The Great Minds Health Care Logo" class="footer-logo-small">
+              <img
+                src="/src/assets/GMHC.png"
+                alt="The Great Minds Health Care Logo"
+                class="footer-logo-small"
+              />
               <h2 class="footer-title">Great Mind Healthcare Center</h2>
             </div>
             <p class="footer-text">
-              Always providing progressive and affordable healthcare, accessible both online and in person for everyone
+              Always providing progressive and affordable healthcare, accessible both online and in
+              person for everyone
             </p>
 
             <!-- Social Media Links -->
             <div class="social-links">
               <a href="#" class="social-link" aria-label="Facebook">
-                <i class="fa fa-facebook"></i>
+                <i class="fab fa-facebook-f"></i>
               </a>
               <a href="#" class="social-link" aria-label="Twitter">
-                <i class="fa fa-twitter"></i>
+                <i class="fab fa-twitter"></i>
               </a>
               <a href="#" class="social-link" aria-label="Instagram">
-                <i class="fa fa-instagram"></i>
+                <i class="fab fa-instagram"></i>
               </a>
               <a href="#" class="social-link" aria-label="LinkedIn">
-                <i class="fa fa-linkedin"></i>
+                <i class="fab fa-linkedin"></i>
               </a>
             </div>
           </div>
@@ -97,7 +113,7 @@
             <ul class="footer-contact">
               <li>
                 <div class="contact-icon">
-                  <i class="fa fa-map-marker"></i>
+                  <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <div class="contact-text">
                   <span>123 Healthcare Ave, Kumasi, Ghana</span>
@@ -105,7 +121,7 @@
               </li>
               <li>
                 <div class="contact-icon">
-                  <i class="fa fa-phone"></i>
+                  <i class="fas fa-mobile-alt"></i>
                 </div>
                 <div class="contact-text">
                   <span>+233 55 785 2345</span>
@@ -113,7 +129,7 @@
               </li>
               <li>
                 <div class="contact-icon">
-                  <i class="fa fa-envelope"></i>
+                  <i class="fas fa-envelope"></i>
                 </div>
                 <div class="contact-text">
                   <span>info@gmhc.com</span>
@@ -121,10 +137,10 @@
               </li>
               <li>
                 <div class="contact-icon">
-                  <i class="fa fa-clock-o"></i>
+                  <i class="far fa-clock"></i>
                 </div>
                 <div class="contact-text">
-                  <span>Mon-Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 1:00 PM</span>
+                  <span>Mon-Fri: 8:00 AM - 6:00 PM<br />Sat: 9:00 AM - 1:00 PM</span>
                 </div>
               </li>
             </ul>
@@ -154,13 +170,13 @@ export default {
       email: '',
       subscribing: false,
       subscriptionMessage: '',
-      subscriptionSuccess: false
+      subscriptionSuccess: false,
     }
   },
   computed: {
     currentYear() {
       return new Date().getFullYear()
-    }
+    },
   },
   methods: {
     subscribeNewsletter() {
@@ -188,10 +204,11 @@ export default {
       }, 1500)
     },
     validateEmail(email) {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return re.test(String(email).toLowerCase())
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -306,7 +323,7 @@ export default {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(0,123,255,0.1), rgba(0,123,255,0));
+  background: linear-gradient(90deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0));
   transition: all 0.4s ease;
 }
 
@@ -497,7 +514,7 @@ export default {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -552,7 +569,7 @@ export default {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }

@@ -7,37 +7,37 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: { title: 'Home - Great Minds Healthcare Center' }
+    meta: { title: 'Home - Great Minds Healthcare Center' },
   },
   {
     path: '/about',
     name: 'About',
     component: () => import('../views/About.vue'),
-    meta: { title: 'About Us - Great Minds Healthcare Center' }
+    meta: { title: 'About Us - Great Minds Healthcare Center' },
   },
   {
     path: '/services',
     name: 'Services',
     component: () => import('../views/Services.vue'),
-    meta: { title: 'Our Services - Great Minds Healthcare Center' }
+    meta: { title: 'Our Services - Great Minds Healthcare Center' },
   },
   {
     path: '/services/:id',
     name: 'ServiceDetail',
     component: () => import('../views/ServiceDetail.vue'),
-    meta: { title: 'Service Detail - Great Minds Healthcare Center' }
+    meta: { title: 'Service Detail - Great Minds Healthcare Center' },
   },
   {
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact.vue'),
-    meta: { title: 'Contact Us - Great Minds Healthcare Center' }
+    meta: { title: 'Contact Us - Great Minds Healthcare Center' },
   },
   {
     path: '/faq',
     name: 'FAQ',
     component: () => import('../views/FAQ.vue'),
-    meta: { title: 'Frequently Asked Questions - Great Minds Healthcare Center' }
+    meta: { title: 'Frequently Asked Questions - Great Minds Healthcare Center' },
   },
   {
     path: '/register',
@@ -45,26 +45,26 @@ const routes = [
     component: () => import('../views/RegisterView.vue'),
     meta: {
       title: 'Register - Great Minds Healthcare Center',
-      guest: true
-    }
+      guest: true,
+    },
   },
   {
     path: '/forgot-password',
     name: 'ForgotPassword',
     component: () => import('../views/ForgotPassword.vue'),
-    meta: { title: 'Forgot Password - Great Minds Healthcare Center' }
+    meta: { title: 'Forgot Password - Great Minds Healthcare Center' },
   },
   {
     path: '/doctors',
     name: 'Doctors',
     component: () => import('../views/Doctors.vue'),
-    meta: { title: 'Our Doctors - Great Minds Healthcare Center' }
+    meta: { title: 'Our Doctors - Great Minds Healthcare Center' },
   },
   {
     path: '/doctors/:id',
     name: 'DoctorDetail',
     component: () => import('../views/DoctorDetail.vue'),
-    meta: { title: 'Doctor Detail - Great Minds Healthcare Center' }
+    meta: { title: 'Doctor Detail - Great Minds Healthcare Center' },
   },
   {
     path: '/dashboard',
@@ -72,8 +72,8 @@ const routes = [
     component: () => import('../views/Dashboard.vue'),
     meta: {
       title: 'Dashboard - Great Minds Healthcare Center',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: '/appointments',
@@ -81,8 +81,8 @@ const routes = [
     component: () => import('../views/Appointments.vue'),
     meta: {
       title: 'My Appointments - Great Minds Healthcare Center',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: '/appointments/book',
@@ -90,8 +90,8 @@ const routes = [
     component: () => import('../views/BookAppointment.vue'),
     meta: {
       title: 'Book Appointment - Great Minds Healthcare Center',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: '/medical-records',
@@ -99,8 +99,8 @@ const routes = [
     component: () => import('../views/MedicalRecords.vue'),
     meta: {
       title: 'Medical Records - Great Minds Healthcare Center',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: '/profile',
@@ -108,8 +108,8 @@ const routes = [
     component: () => import('../views/Profile.vue'),
     meta: {
       title: 'My Profile - Great Minds Healthcare Center',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: '/health-tips',
@@ -117,8 +117,8 @@ const routes = [
     component: () => import('../views/HealthTips.vue'),
     meta: {
       title: 'Health Tips - Great Minds Healthcare Center',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: '/health-tips/:id',
@@ -126,8 +126,8 @@ const routes = [
     component: () => import('../views/HealthTipDetail.vue'),
     meta: {
       title: 'Health Tip Detail - Great Minds Healthcare Center',
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     path: '/login',
@@ -135,16 +135,16 @@ const routes = [
     component: () => import('../views/LoginView.vue'),
     meta: {
       title: 'Sign In - Great Minds Healthcare Center',
-      guest: true
-    }
+      guest: true,
+    },
   },
   {
     path: '/email-verification',
     name: 'EmailVerification',
     component: () => import('../views/EmailVerification.vue'),
     meta: {
-      title: 'Verify Your Email - Great Minds Healthcare Center'
-    }
+      title: 'Verify Your Email - Great Minds Healthcare Center',
+    },
   },
   {
     path: '/reset-password/:token',
@@ -152,15 +152,15 @@ const routes = [
     component: () => import('../views/ResetPassword.vue'),
     meta: {
       title: 'Reset Password - Great Minds Healthcare Center',
-      guest: true
-    }
+      guest: true,
+    },
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('../views/NotFound.vue'),
-    meta: { title: 'Page Not Found - Great Minds Healthcare Center' }
-  }
+    meta: { title: 'Page Not Found - Great Minds Healthcare Center' },
+  },
 ]
 
 const router = createRouter({
@@ -172,7 +172,7 @@ const router = createRouter({
     } else {
       return { top: 0 }
     }
-  }
+  },
 })
 
 // Navigation guards
@@ -181,11 +181,11 @@ router.beforeEach((to, from, next) => {
   document.title = to.meta.title || 'Great Minds Healthcare Center'
 
   // Check if the route requires authentication
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
   const isAuthenticated = store.getters['auth/isAuthenticated']
 
   // Check if the route is for guests only (like login, register)
-  const isGuestRoute = to.matched.some(record => record.meta.guest)
+  const isGuestRoute = to.matched.some((record) => record.meta.guest)
 
   if (requiresAuth && !isAuthenticated) {
     // If route requires auth but user is not authenticated, redirect to login
@@ -196,7 +196,7 @@ router.beforeEach((to, from, next) => {
     next({
       name: 'Login',
       query: { redirect: to.fullPath },
-      params: { showAuthMessage: true }
+      params: { showAuthMessage: true },
     })
   } else if (isGuestRoute && isAuthenticated) {
     // If route is for guests only and user is authenticated, redirect to dashboard

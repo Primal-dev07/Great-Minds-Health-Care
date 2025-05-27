@@ -8,7 +8,8 @@
             <div class="hero-content">
               <h1 class="hero-title">Frequently Asked Questions</h1>
               <p class="hero-text">
-                Find answers to common questions about our healthcare services, appointments, insurance, and more.
+                Find answers to common questions about our healthcare services, appointments,
+                insurance, and more.
               </p>
               <div class="search-container">
                 <form @submit.prevent="searchFAQs">
@@ -18,9 +19,9 @@
                       class="form-control"
                       placeholder="Search questions..."
                       v-model="searchQuery"
-                    >
+                    />
                     <button class="btn btn-primary" type="submit">
-                      <i class="fa fa-search"></i>
+                      <i class="fas fa-search"></i>
                     </button>
                   </div>
                 </form>
@@ -29,7 +30,10 @@
           </div>
           <div class="col-lg-6 d-none d-lg-block">
             <div class="hero-image">
-              <img src="https://placehold.co/800x600/e1ddf0/333333.png?text=FAQ" alt="Frequently Asked Questions">
+              <img
+                src="https://placehold.co/800x600/e1ddf0/333333.png?text=FAQ"
+                alt="Frequently Asked Questions"
+              />
             </div>
           </div>
         </div>
@@ -96,19 +100,13 @@
               </div>
               <h3>No questions found</h3>
               <p>We couldn't find any questions matching your search criteria.</p>
-              <button class="btn btn-outline-primary" @click="clearSearch">
-                Clear Search
-              </button>
+              <button class="btn btn-outline-primary" @click="clearSearch">Clear Search</button>
             </div>
 
             <!-- FAQ Accordion -->
             <div v-else class="faq-accordion">
               <div class="accordion" id="faqAccordion">
-                <div
-                  v-for="(faq, index) in filteredFAQs"
-                  :key="faq.id"
-                  class="accordion-item"
-                >
+                <div v-for="(faq, index) in filteredFAQs" :key="faq.id" class="accordion-item">
                   <h2 class="accordion-header" :id="'heading' + faq.id">
                     <button
                       class="accordion-button"
@@ -134,7 +132,10 @@
                     <div class="accordion-body">
                       <div v-html="faq.answer"></div>
 
-                      <div v-if="faq.relatedLinks && faq.relatedLinks.length > 0" class="related-links">
+                      <div
+                        v-if="faq.relatedLinks && faq.relatedLinks.length > 0"
+                        class="related-links"
+                      >
                         <h5>Related Information:</h5>
                         <ul>
                           <li v-for="(link, linkIndex) in faq.relatedLinks" :key="linkIndex">
@@ -142,7 +143,7 @@
                               {{ link.text }}
                             </router-link>
                             <a v-else :href="link.url" target="_blank" rel="noopener noreferrer">
-                              {{ link.text }} <i class="fa fa-external-link-alt fa-xs"></i>
+                              {{ link.text }} <i class="fas fa-external-link-alt fa-xs"></i>
                             </a>
                           </li>
                         </ul>
@@ -151,10 +152,16 @@
                       <div class="faq-feedback">
                         <p>Was this answer helpful?</p>
                         <div class="feedback-buttons">
-                          <button class="btn btn-sm btn-outline-success me-2" @click="provideFeedback(faq.id, true)">
+                          <button
+                            class="btn btn-sm btn-outline-success me-2"
+                            @click="provideFeedback(faq.id, true)"
+                          >
                             <i class="fa fa-thumbs-up me-1"></i> Yes
                           </button>
-                          <button class="btn btn-sm btn-outline-danger" @click="provideFeedback(faq.id, false)">
+                          <button
+                            class="btn btn-sm btn-outline-danger"
+                            @click="provideFeedback(faq.id, false)"
+                          >
                             <i class="fa fa-thumbs-down me-1"></i> No
                           </button>
                         </div>
@@ -177,7 +184,8 @@
             <div class="col-lg-7">
               <h2 class="contact-title">Still Have Questions?</h2>
               <p class="contact-text">
-                Our team is here to help you with any questions or concerns you may have about our healthcare services.
+                Our team is here to help you with any questions or concerns you may have about our
+                healthcare services.
               </p>
               <div class="contact-options">
                 <div class="contact-option">
@@ -214,7 +222,7 @@
                       id="name"
                       v-model="contactForm.name"
                       required
-                    >
+                    />
                   </div>
                   <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
@@ -224,7 +232,7 @@
                       id="email"
                       v-model="contactForm.email"
                       required
-                    >
+                    />
                   </div>
                   <div class="mb-3">
                     <label for="question" class="form-label">Your Question</label>
@@ -238,7 +246,12 @@
                   </div>
                   <button type="submit" class="btn btn-primary w-100">
                     <span v-if="!submitting">Submit Question</span>
-                    <span v-else class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <span
+                      v-else
+                      class="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
                   </button>
                 </form>
               </div>
@@ -262,130 +275,147 @@ export default {
       contactForm: {
         name: '',
         email: '',
-        question: ''
+        question: '',
       },
       categories: [
-        { id: 'all', name: 'All Categories', icon: 'fa fa-th-large' },
-        { id: 'appointments', name: 'Appointments', icon: 'fa fa-calendar-alt' },
-        { id: 'services', name: 'Our Services', icon: 'fa fa-stethoscope' },
-        { id: 'insurance', name: 'Insurance & Billing', icon: 'fa fa-credit-card' },
-        { id: 'medical', name: 'Medical Information', icon: 'fa fa-heartbeat' },
-        { id: 'covid', name: 'COVID-19', icon: 'fa fa-virus' },
-        { id: 'telemedicine', name: 'Telemedicine', icon: 'fa fa-video' }
+        { id: 'all', name: 'All Categories', icon: 'fas fa-th-large' },
+        { id: 'appointments', name: 'Appointments', icon: 'fas fa-calendar-alt' },
+        { id: 'services', name: 'Our Services', icon: 'fas fa-stethoscope' },
+        { id: 'insurance', name: 'Insurance & Billing', icon: 'fas fa-credit-card' },
+        { id: 'medical', name: 'Medical Information', icon: 'fas fa-heartbeat' },
+        { id: 'covid', name: 'COVID-19', icon: 'fas fa-virus' },
+        { id: 'telemedicine', name: 'Telemedicine', icon: 'fas fa-video' },
       ],
       faqs: [
         {
           id: 1,
           category: 'appointments',
           question: 'How do I schedule an appointment?',
-          answer: '<p>You can schedule an appointment in several ways:</p><ul><li>Online through our patient portal</li><li>Using our mobile app</li><li>Calling our appointment line at +233 55 785 2345</li><li>Visiting our reception desk in person</li></ul><p>For new patients, we recommend creating an account on our patient portal first, which will streamline the appointment process.</p>',
+          answer:
+            '<p>You can schedule an appointment in several ways:</p><ul><li>Online through our patient portal</li><li>Using our mobile app</li><li>Calling our appointment line at +233 55 785 2345</li><li>Visiting our reception desk in person</li></ul><p>For new patients, we recommend creating an account on our patient portal first, which will streamline the appointment process.</p>',
           relatedLinks: [
             { text: 'Book an Appointment', url: '/appointments/book', internal: true },
-            { text: 'Patient Portal', url: '/dashboard', internal: true }
-          ]
+            { text: 'Patient Portal', url: '/dashboard', internal: true },
+          ],
         },
         {
           id: 2,
           category: 'appointments',
           question: 'What should I bring to my first appointment?',
-          answer: '<p>For your first appointment, please bring the following:</p><ul><li>Valid government-issued photo ID (passport, driver\'s license, etc.)</li><li>Insurance card (if applicable)</li><li>List of current medications</li><li>Medical records or referrals from other healthcare providers</li><li>Payment method for copays or self-pay fees</li></ul><p>We recommend arriving 15 minutes early to complete any necessary paperwork.</p>'
+          answer:
+            "<p>For your first appointment, please bring the following:</p><ul><li>Valid government-issued photo ID (passport, driver's license, etc.)</li><li>Insurance card (if applicable)</li><li>List of current medications</li><li>Medical records or referrals from other healthcare providers</li><li>Payment method for copays or self-pay fees</li></ul><p>We recommend arriving 15 minutes early to complete any necessary paperwork.</p>",
         },
         {
           id: 3,
           category: 'appointments',
           question: 'How do I cancel or reschedule an appointment?',
-          answer: '<p>You can cancel or reschedule your appointment through our patient portal, mobile app, or by calling our appointment line at +233 55 785 2345.</p><p>We request that you provide at least 24 hours\' notice for cancellations or rescheduling. This allows us to offer the time slot to other patients who may need urgent care.</p><p>Repeated no-shows or late cancellations may result in a fee.</p>'
+          answer:
+            "<p>You can cancel or reschedule your appointment through our patient portal, mobile app, or by calling our appointment line at +233 55 785 2345.</p><p>We request that you provide at least 24 hours' notice for cancellations or rescheduling. This allows us to offer the time slot to other patients who may need urgent care.</p><p>Repeated no-shows or late cancellations may result in a fee.</p>",
         },
         {
           id: 4,
           category: 'services',
           question: 'What services does Great Minds Healthcare Center offer?',
-          answer: '<p>Great Minds Healthcare Center offers a comprehensive range of healthcare services, including:</p><ul><li>Primary care for adults and children</li><li>Specialist consultations</li><li>Preventive care and screenings</li><li>Diagnostic services (laboratory tests, imaging)</li><li>Chronic disease management</li><li>Vaccinations and immunizations</li><li>Mental health services</li><li>Telemedicine consultations</li></ul><p>For specific information about any of these services, please visit our Services page or contact our office.</p>',
+          answer:
+            '<p>Great Minds Healthcare Center offers a comprehensive range of healthcare services, including:</p><ul><li>Primary care for adults and children</li><li>Specialist consultations</li><li>Preventive care and screenings</li><li>Diagnostic services (laboratory tests, imaging)</li><li>Chronic disease management</li><li>Vaccinations and immunizations</li><li>Mental health services</li><li>Telemedicine consultations</li></ul><p>For specific information about any of these services, please visit our Services page or contact our office.</p>',
           relatedLinks: [
             { text: 'Our Services', url: '/services', internal: true },
-            { text: 'Meet Our Doctors', url: '/doctors', internal: true }
-          ]
+            { text: 'Meet Our Doctors', url: '/doctors', internal: true },
+          ],
         },
         {
           id: 5,
           category: 'services',
           question: 'Do you offer emergency services?',
-          answer: '<p>Great Minds Healthcare Center does not provide emergency room services. If you are experiencing a life-threatening emergency, please call emergency services (911) or go to the nearest emergency room immediately.</p><p>We do offer same-day appointments for urgent but non-emergency medical issues during our regular business hours. Please call our office as early as possible to schedule an urgent appointment.</p><p>For after-hours urgent care needs that are not emergencies, please call our main number for guidance from our on-call provider.</p>'
+          answer:
+            '<p>Great Minds Healthcare Center does not provide emergency room services. If you are experiencing a life-threatening emergency, please call emergency services (911) or go to the nearest emergency room immediately.</p><p>We do offer same-day appointments for urgent but non-emergency medical issues during our regular business hours. Please call our office as early as possible to schedule an urgent appointment.</p><p>For after-hours urgent care needs that are not emergencies, please call our main number for guidance from our on-call provider.</p>',
         },
         {
           id: 6,
           category: 'insurance',
           question: 'What insurance plans do you accept?',
-          answer: '<p>We accept most major insurance plans, including:</p><ul><li>National Health Insurance Scheme (NHIS)</li><li>Ghana Health Service Insurance</li><li>Private health insurance plans (Nationwide, Enterprise, etc.)</li><li>International health insurance plans</li></ul><p>Insurance coverage varies by plan and service. We recommend contacting your insurance provider to verify coverage before your appointment.</p><p>If you have questions about whether we accept your specific insurance plan, please contact our billing department.</p>',
-          relatedLinks: [
-            { text: 'Insurance Information', url: '/insurance', internal: true }
-          ]
+          answer:
+            '<p>We accept most major insurance plans, including:</p><ul><li>National Health Insurance Scheme (NHIS)</li><li>Ghana Health Service Insurance</li><li>Private health insurance plans (Nationwide, Enterprise, etc.)</li><li>International health insurance plans</li></ul><p>Insurance coverage varies by plan and service. We recommend contacting your insurance provider to verify coverage before your appointment.</p><p>If you have questions about whether we accept your specific insurance plan, please contact our billing department.</p>',
+          relatedLinks: [{ text: 'Insurance Information', url: '/insurance', internal: true }],
         },
         {
           id: 7,
           category: 'insurance',
-          question: 'What if I don\'t have insurance?',
-          answer: '<p>If you don\'t have insurance, we offer self-pay options with transparent pricing for our services. We strive to make healthcare accessible to all patients, regardless of insurance status.</p><p>We can provide cost estimates before your appointment so you know what to expect. Payment plans may be available for certain services.</p><p>Our staff can also provide information about community resources and assistance programs that may help with healthcare costs.</p>'
+          question: "What if I don't have insurance?",
+          answer:
+            "<p>If you don't have insurance, we offer self-pay options with transparent pricing for our services. We strive to make healthcare accessible to all patients, regardless of insurance status.</p><p>We can provide cost estimates before your appointment so you know what to expect. Payment plans may be available for certain services.</p><p>Our staff can also provide information about community resources and assistance programs that may help with healthcare costs.</p>",
         },
         {
           id: 8,
           category: 'medical',
           question: 'How can I access my medical records?',
-          answer: '<p>You can access your medical records through our secure patient portal, which allows you to view:</p><ul><li>Visit summaries</li><li>Test results</li><li>Medication lists</li><li>Immunization records</li><li>And more</li></ul><p>If you need a complete copy of your medical records or records from before you became our patient, you can submit a medical records request form. There may be a small fee for processing extensive records requests.</p><p>For medical records requests, please allow 5-7 business days for processing.</p>',
+          answer:
+            '<p>You can access your medical records through our secure patient portal, which allows you to view:</p><ul><li>Visit summaries</li><li>Test results</li><li>Medication lists</li><li>Immunization records</li><li>And more</li></ul><p>If you need a complete copy of your medical records or records from before you became our patient, you can submit a medical records request form. There may be a small fee for processing extensive records requests.</p><p>For medical records requests, please allow 5-7 business days for processing.</p>',
           relatedLinks: [
             { text: 'Patient Portal', url: '/dashboard', internal: true },
-            { text: 'Medical Records', url: '/medical-records', internal: true }
-          ]
+            { text: 'Medical Records', url: '/medical-records', internal: true },
+          ],
         },
         {
           id: 9,
           category: 'medical',
           question: 'How do I get a prescription refill?',
-          answer: '<p>There are several ways to request a prescription refill:</p><ol><li>Through our patient portal (recommended)</li><li>Using our mobile app</li><li>Calling our pharmacy line at +233 55 785 2346</li><li>Having your pharmacy send a refill request directly to us</li></ol><p>Please request refills at least 3 business days before you run out of medication. Controlled substances may require an appointment before refills can be authorized.</p><p>For new prescriptions or if you haven\'t had a check-up in over a year, you may need to schedule an appointment before the refill can be approved.</p>'
+          answer:
+            "<p>There are several ways to request a prescription refill:</p><ol><li>Through our patient portal (recommended)</li><li>Using our mobile app</li><li>Calling our pharmacy line at +233 55 785 2346</li><li>Having your pharmacy send a refill request directly to us</li></ol><p>Please request refills at least 3 business days before you run out of medication. Controlled substances may require an appointment before refills can be authorized.</p><p>For new prescriptions or if you haven't had a check-up in over a year, you may need to schedule an appointment before the refill can be approved.</p>",
         },
         {
           id: 10,
           category: 'covid',
           question: 'Do you offer COVID-19 testing and vaccination?',
-          answer: '<p>Yes, we offer both COVID-19 testing and vaccination services.</p><p><strong>Testing:</strong> We provide PCR and rapid antigen testing for COVID-19. Testing may be scheduled by appointment or during walk-in hours, depending on availability.</p><p><strong>Vaccination:</strong> We offer COVID-19 vaccines as recommended by health authorities. Vaccine availability may vary, so please check our website or call our office for current information.</p><p>Most insurance plans cover COVID-19 testing and vaccination. If you\'re uninsured, government programs may cover these services at no cost to you.</p>',
+          answer:
+            "<p>Yes, we offer both COVID-19 testing and vaccination services.</p><p><strong>Testing:</strong> We provide PCR and rapid antigen testing for COVID-19. Testing may be scheduled by appointment or during walk-in hours, depending on availability.</p><p><strong>Vaccination:</strong> We offer COVID-19 vaccines as recommended by health authorities. Vaccine availability may vary, so please check our website or call our office for current information.</p><p>Most insurance plans cover COVID-19 testing and vaccination. If you're uninsured, government programs may cover these services at no cost to you.</p>",
           relatedLinks: [
-            { text: 'COVID-19 Information', url: 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019', internal: false }
-          ]
+            {
+              text: 'COVID-19 Information',
+              url: 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019',
+              internal: false,
+            },
+          ],
         },
         {
           id: 11,
           category: 'covid',
           question: 'What COVID-19 safety measures do you have in place?',
-          answer: '<p>We maintain strict safety protocols to protect our patients and staff:</p><ul><li>Enhanced cleaning and disinfection procedures</li><li>Screening of all patients and visitors for symptoms</li><li>Appropriate personal protective equipment (PPE) for all staff</li><li>Social distancing measures in waiting areas</li><li>Telemedicine options for eligible appointments</li></ul><p>Our protocols are regularly updated to align with the latest guidance from health authorities. We appreciate your cooperation with these measures during your visit.</p>'
+          answer:
+            '<p>We maintain strict safety protocols to protect our patients and staff:</p><ul><li>Enhanced cleaning and disinfection procedures</li><li>Screening of all patients and visitors for symptoms</li><li>Appropriate personal protective equipment (PPE) for all staff</li><li>Social distancing measures in waiting areas</li><li>Telemedicine options for eligible appointments</li></ul><p>Our protocols are regularly updated to align with the latest guidance from health authorities. We appreciate your cooperation with these measures during your visit.</p>',
         },
         {
           id: 12,
           category: 'telemedicine',
           question: 'How do telemedicine appointments work?',
-          answer: '<p>Telemedicine appointments allow you to consult with our healthcare providers via secure video conferencing from the comfort of your home. Here\'s how they work:</p><ol><li>Schedule a telemedicine appointment through our patient portal or by calling our office</li><li>You\'ll receive instructions and a link via email or text message</li><li>At your appointment time, click the link to join the secure video call</li><li>The provider will conduct the consultation, discuss your concerns, and provide recommendations</li></ol><p>You\'ll need a device with a camera and microphone (smartphone, tablet, or computer) and a stable internet connection.</p>',
+          answer:
+            "<p>Telemedicine appointments allow you to consult with our healthcare providers via secure video conferencing from the comfort of your home. Here's how they work:</p><ol><li>Schedule a telemedicine appointment through our patient portal or by calling our office</li><li>You'll receive instructions and a link via email or text message</li><li>At your appointment time, click the link to join the secure video call</li><li>The provider will conduct the consultation, discuss your concerns, and provide recommendations</li></ol><p>You'll need a device with a camera and microphone (smartphone, tablet, or computer) and a stable internet connection.</p>",
           relatedLinks: [
-            { text: 'Book a Telemedicine Appointment', url: '/appointments/book', internal: true }
-          ]
+            { text: 'Book a Telemedicine Appointment', url: '/appointments/book', internal: true },
+          ],
         },
         {
           id: 13,
           category: 'telemedicine',
           question: 'What conditions can be treated through telemedicine?',
-          answer: '<p>Many conditions can be effectively evaluated and treated through telemedicine, including:</p><ul><li>Cold and flu symptoms</li><li>Allergies</li><li>Rashes and minor skin conditions</li><li>Follow-up appointments for chronic conditions</li><li>Medication management</li><li>Mental health consultations</li><li>Review of test results</li></ul><p>However, some conditions require in-person evaluation. Our providers will advise if you need to be seen in person after your telemedicine consultation.</p>'
+          answer:
+            '<p>Many conditions can be effectively evaluated and treated through telemedicine, including:</p><ul><li>Cold and flu symptoms</li><li>Allergies</li><li>Rashes and minor skin conditions</li><li>Follow-up appointments for chronic conditions</li><li>Medication management</li><li>Mental health consultations</li><li>Review of test results</li></ul><p>However, some conditions require in-person evaluation. Our providers will advise if you need to be seen in person after your telemedicine consultation.</p>',
         },
         {
           id: 14,
           category: 'insurance',
           question: 'How does billing work for your services?',
-          answer: '<p>Our billing process works as follows:</p><ol><li>We verify your insurance coverage before your appointment</li><li>Copays and deductibles are collected at the time of service</li><li>We submit claims to your insurance company</li><li>Your insurance processes the claim and determines your responsibility</li><li>You\'ll receive a statement for any remaining balance</li></ol><p>Payment options include cash, credit/debit cards, checks, and online payments through our patient portal. If you have questions about a bill, please contact our billing department at +233 55 785 2347.</p>'
+          answer:
+            "<p>Our billing process works as follows:</p><ol><li>We verify your insurance coverage before your appointment</li><li>Copays and deductibles are collected at the time of service</li><li>We submit claims to your insurance company</li><li>Your insurance processes the claim and determines your responsibility</li><li>You'll receive a statement for any remaining balance</li></ol><p>Payment options include cash, credit/debit cards, checks, and online payments through our patient portal. If you have questions about a bill, please contact our billing department at +233 55 785 2347.</p>",
         },
         {
           id: 15,
           category: 'appointments',
           question: 'What are your office hours?',
-          answer: '<p>Our regular office hours are:</p><ul><li>Monday - Friday: 8:00 AM - 6:00 PM</li><li>Saturday: 9:00 AM - 1:00 PM</li><li>Sunday: Closed</li></ul><p>We offer extended hours on Tuesdays and Thursdays until 8:00 PM for patients who cannot visit during regular business hours.</p><p>Please note that specific departments or services may have different hours. Always check our website or call ahead to confirm availability for specialized services.</p>'
-        }
-      ]
+          answer:
+            '<p>Our regular office hours are:</p><ul><li>Monday - Friday: 8:00 AM - 6:00 PM</li><li>Saturday: 9:00 AM - 1:00 PM</li><li>Sunday: Closed</li></ul><p>We offer extended hours on Tuesdays and Thursdays until 8:00 PM for patients who cannot visit during regular business hours.</p><p>Please note that specific departments or services may have different hours. Always check our website or call ahead to confirm availability for specialized services.</p>',
+        },
+      ],
     }
   },
   computed: {
@@ -395,19 +425,19 @@ export default {
       // Filter by search query
       if (this.searchQuery) {
         const query = this.searchQuery.toLowerCase()
-        filtered = filtered.filter(faq =>
-          faq.question.toLowerCase().includes(query) ||
-          faq.answer.toLowerCase().includes(query)
+        filtered = filtered.filter(
+          (faq) =>
+            faq.question.toLowerCase().includes(query) || faq.answer.toLowerCase().includes(query),
         )
       }
 
       // Filter by category
       if (this.selectedCategory !== 'all') {
-        filtered = filtered.filter(faq => faq.category === this.selectedCategory)
+        filtered = filtered.filter((faq) => faq.category === this.selectedCategory)
       }
 
       return filtered
-    }
+    },
   },
   methods: {
     searchFAQs() {
@@ -425,18 +455,18 @@ export default {
       this.searchQuery = ''
     },
     getCategoryName(categoryId) {
-      const category = this.categories.find(cat => cat.id === categoryId)
+      const category = this.categories.find((cat) => cat.id === categoryId)
       return category ? category.name : ''
     },
     getCategoryCount(categoryId) {
       if (categoryId === 'all') {
         return this.faqs.length
       }
-      return this.faqs.filter(faq => faq.category === categoryId).length
+      return this.faqs.filter((faq) => faq.category === categoryId).length
     },
     toggleFAQ(faqId) {
       if (this.isOpen(faqId)) {
-        this.openFAQs = this.openFAQs.filter(id => id !== faqId)
+        this.openFAQs = this.openFAQs.filter((id) => id !== faqId)
       } else {
         this.openFAQs.push(faqId)
       }
@@ -446,7 +476,9 @@ export default {
     },
     provideFeedback(faqId, isHelpful) {
       // In a real application, this would send feedback to a backend service
-      alert(`Thank you for your feedback! We ${isHelpful ? 'are glad this was helpful' : 'will work to improve this answer'}.`)
+      alert(
+        `Thank you for your feedback! We ${isHelpful ? 'are glad this was helpful' : 'will work to improve this answer'}.`,
+      )
     },
     submitQuestion() {
       // Validate form
@@ -466,10 +498,10 @@ export default {
         this.contactForm = {
           name: '',
           email: '',
-          question: ''
+          question: '',
         }
       }, 1500)
-    }
+    },
   },
   mounted() {
     document.title = 'Frequently Asked Questions - Great Minds Healthcare Center'
@@ -478,7 +510,7 @@ export default {
     const { category, search } = this.$route.query
 
     if (category) {
-      const validCategory = this.categories.find(c => c.id === category)
+      const validCategory = this.categories.find((c) => c.id === category)
       if (validCategory) {
         this.selectedCategory = validCategory.id
       }
@@ -487,7 +519,7 @@ export default {
     if (search) {
       this.searchQuery = search
     }
-  }
+  },
 }
 </script>
 
@@ -844,7 +876,8 @@ export default {
   margin-bottom: 15px;
 }
 
-.accordion-body ul, .accordion-body ol {
+.accordion-body ul,
+.accordion-body ol {
   margin-bottom: 15px;
   padding-left: 20px;
 }

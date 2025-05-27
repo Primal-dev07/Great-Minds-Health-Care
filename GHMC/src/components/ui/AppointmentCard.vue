@@ -9,20 +9,24 @@
         <i class="fa fa-clock-o"></i> {{ formatTime(appointment.time) }}
       </div>
     </div>
-    
+
     <div class="appointment-body">
       <div class="doctor-info">
-        <img 
-          :src="appointment.doctor.image ? require(`@/assets/images/doctors/${appointment.doctor.image}`) : require('@/assets/images/doctor-placeholder.jpg')" 
+        <img
+          :src="
+            appointment.doctor.image
+              ? require(`@/assets/images/doctors/${appointment.doctor.image}`)
+              : require('@/assets/images/doctor-placeholder.jpg')
+          "
           :alt="appointment.doctor.name"
           class="doctor-image"
-        >
+        />
         <div>
           <h4 class="doctor-name">Dr. {{ appointment.doctor.name }}</h4>
           <p class="doctor-specialty">{{ appointment.doctor.specialty }}</p>
         </div>
       </div>
-      
+
       <div class="appointment-details">
         <div class="detail-item">
           <i class="fa fa-stethoscope"></i>
@@ -38,34 +42,31 @@
         </div>
       </div>
     </div>
-    
+
     <div class="appointment-actions">
-      <button 
-        v-if="canReschedule" 
+      <button
+        v-if="canReschedule"
         class="btn btn-outline-primary btn-sm"
         @click="$emit('reschedule', appointment.id)"
       >
-        <i class="fa fa-calendar"></i> Reschedule
+        <i class="fas fa-calendar"></i> Reschedule
       </button>
-      <button 
-        v-if="canCancel" 
+      <button
+        v-if="canCancel"
         class="btn btn-outline-danger btn-sm"
         @click="$emit('cancel', appointment.id)"
       >
-        <i class="fa fa-times"></i> Cancel
+        <i class="fas fa-times"></i> Cancel
       </button>
-      <button 
-        v-if="isPast && appointment.status === 'completed'" 
+      <button
+        v-if="isPast && appointment.status === 'completed'"
         class="btn btn-outline-success btn-sm"
         @click="$emit('review', appointment.id)"
       >
-        <i class="fa fa-star"></i> Leave Review
+        <i class="fas fa-star"></i> Leave Review
       </button>
-      <button 
-        class="btn btn-outline-secondary btn-sm"
-        @click="$emit('details', appointment.id)"
-      >
-        <i class="fa fa-eye"></i> View Details
+      <button class="btn btn-outline-secondary btn-sm" @click="$emit('details', appointment.id)">
+        <i class="fas fa-eye"></i> View Details
       </button>
     </div>
   </div>
@@ -77,8 +78,8 @@ export default {
   props: {
     appointment: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     statusClass() {
@@ -87,7 +88,7 @@ export default {
         'status-upcoming': status === 'upcoming',
         'status-completed': status === 'completed',
         'status-cancelled': status === 'cancelled',
-        'status-rescheduled': status === 'rescheduled'
+        'status-rescheduled': status === 'rescheduled',
       }
     },
     isPast() {
@@ -98,27 +99,27 @@ export default {
     },
     canCancel() {
       return this.appointment.status === 'upcoming' && !this.isPast
-    }
+    },
   },
   methods: {
     formatDate(dateString) {
       if (!dateString) return ''
-      
+
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(dateString).toLocaleDateString(undefined, options)
     },
     formatTime(timeString) {
       if (!timeString) return ''
-      
+
       // Assuming timeString is in 24-hour format like "14:30"
       const [hours, minutes] = timeString.split(':')
       const hour = parseInt(hours)
       const ampm = hour >= 12 ? 'PM' : 'AM'
       const hour12 = hour % 12 || 12
-      
+
       return `${hour12}:${minutes} ${ampm}`
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -130,7 +131,9 @@ export default {
   overflow: hidden;
   margin-bottom: 20px;
   border-left: 5px solid #ccc;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .appointment-card:hover {
@@ -282,15 +285,15 @@ export default {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .appointment-time {
     margin-top: 10px;
   }
-  
+
   .appointment-actions {
     flex-wrap: wrap;
   }
-  
+
   .appointment-actions .btn {
     flex: 1 0 calc(50% - 5px);
   }

@@ -1,7 +1,10 @@
 <template>
   <div class="doctor-card">
     <div class="doctor-image">
-      <img :src="doctor.image ? `/src/assets/images/${doctor.image}` : `/src/assets/physician.png`" :alt="doctor.name">
+      <img
+        :src="doctor.image ? `/src/assets/images/${doctor.image}` : `/src/assets/physician.png`"
+        :alt="doctor.name"
+      />
     </div>
     <div class="doctor-info">
       <h3 class="doctor-name">Dr. {{ doctor.name }}</h3>
@@ -10,24 +13,16 @@
         <i
           v-for="star in 5"
           :key="star"
-          class="fa"
-          :class="star <= doctor.rating ? 'fa-star' : 'fa-star-o'"
+          class="fas"
+          :class="star <= doctor.rating ? 'fa-star' : 'fa-star'"
+          :style="{ color: star <= doctor.rating ? '#ffc107' : '#e4e5e9' }"
         ></i>
         <span>({{ doctor.reviewCount }})</span>
       </div>
       <p class="doctor-bio">{{ truncatedBio }}</p>
       <div class="doctor-actions">
-        <router-link
-          to="/contact"
-          class="btn btn-primary btn-sm"
-        >
-          Book Appointment
-        </router-link>
-        <router-link
-          :to="link"
-          class="btn btn-outline-primary btn-sm"
-          v-if="link"
-        >
+        <router-link to="/contact" class="btn btn-primary btn-sm"> Book Appointment </router-link>
+        <router-link :to="link" class="btn btn-outline-primary btn-sm" v-if="link">
           Learn More
         </router-link>
       </div>
@@ -41,21 +36,21 @@ export default {
   props: {
     doctor: {
       type: Object,
-      required: true
+      required: true,
     },
     link: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     truncatedBio() {
       return this.doctor.bio && this.doctor.bio.length > 100
         ? this.doctor.bio.substring(0, 100) + '...'
         : this.doctor.bio
-    }
+    },
   },
-  methods: {}
+  methods: {},
 }
 </script>
 
@@ -65,7 +60,9 @@ export default {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   height: 100%;
   display: flex;
   flex-direction: column;

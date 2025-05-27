@@ -16,8 +16,8 @@ export default {
   name: 'App',
   components: {
     Navbar,
-    PageFooter
-  }
+    PageFooter,
+  },
 }
 </script>
 
@@ -44,9 +44,15 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 15px;
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 10px;
+  }
 }
 
 .section {
@@ -66,7 +72,7 @@ body {
 
 .section-title h2 {
   font-size: 2.5rem;
-  color: #4D6DF4;
+  color: #4d6df4;
   margin-bottom: 15px;
   position: relative;
   display: inline-block;

@@ -4,7 +4,7 @@
       <div class="container">
         <!-- Logo -->
         <router-link class="navbar-brand" to="/">
-          <img src="/src/assets/GMHC.png" alt="Great Minds Healthcare Center Logo" height="60">
+          <img src="/src/assets/GMHC.png" alt="Great Minds Healthcare Center Logo" height="60" />
         </router-link>
 
         <!-- Hamburger button for mobile -->
@@ -15,7 +15,7 @@
             @click="isSearchOpen = !isSearchOpen"
             aria-label="Toggle search"
           >
-            <i class="fa" :class="isSearchOpen ? 'fa-times' : 'fa-search'"></i>
+            <i class="fas" :class="isSearchOpen ? 'fa-xmark' : 'fa-search'"></i>
           </button>
 
           <!-- Mobile menu toggle -->
@@ -30,7 +30,7 @@
         </div>
 
         <!-- Mobile search bar -->
-        <div class="mobile-search-container" :class="{ 'show': isSearchOpen }">
+        <div class="mobile-search-container" :class="{ show: isSearchOpen }">
           <form class="d-flex search-form w-100" @submit.prevent="search">
             <input
               class="form-control"
@@ -39,49 +39,74 @@
               aria-label="Search"
               v-model="searchQuery"
               ref="mobileSearchInput"
-            >
+            />
             <button class="btn btn-search" type="submit">
-              <i class="fa fa-search"></i>
+              <i class="fas fa-search"></i>
             </button>
             <button class="btn btn-clear" type="button" @click="clearSearch">
-              <i class="fa fa-times"></i>
+              <i class="fas fa-times"></i>
             </button>
           </form>
         </div>
 
         <!-- Navigation links -->
-        <div class="collapse navbar-collapse" :class="{ 'show': isNavOpen }">
+        <div class="collapse navbar-collapse" :class="{ show: isNavOpen }">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <router-link class="nav-link" to="/" exact-active-class="active" @click="closeNavOnMobile">Home</router-link>
+              <router-link
+                class="nav-link"
+                to="/"
+                exact-active-class="active"
+                @click="closeNavOnMobile"
+                >Home</router-link
+              >
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="healthResourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="healthResourcesDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Health Resources
               </a>
               <ul class="dropdown-menu" aria-labelledby="healthResourcesDropdown">
                 <li>
                   <router-link class="dropdown-item" to="/services" @click="closeNavOnMobile">
-                    <i class="fa fa-stethoscope me-2"></i> Our Services
+                    <i class="fas fa-stethoscope me-2"></i> Our Services
                   </router-link>
                 </li>
                 <li>
                   <router-link class="dropdown-item" to="/doctors" @click="closeNavOnMobile">
-                    <i class="fa fa-user-md me-2"></i> Our Doctors
+                    <i class="fas fa-user-doctor me-2"></i> Our Doctors
                   </router-link>
                 </li>
                 <li>
                   <router-link class="dropdown-item" to="/health-tips" @click="closeNavOnMobile">
-                    <i class="fa fa-heartbeat me-2"></i> Health Tips
+                    <i class="fas fa-heartbeat me-2"></i> Health Tips
                   </router-link>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/contact" active-class="active" @click="closeNavOnMobile">Contact</router-link>
+              <router-link
+                class="nav-link"
+                to="/contact"
+                active-class="active"
+                @click="closeNavOnMobile"
+                >Contact</router-link
+              >
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/about" active-class="active" @click="closeNavOnMobile">About Us</router-link>
+              <router-link
+                class="nav-link"
+                to="/about"
+                active-class="active"
+                @click="closeNavOnMobile"
+                >About Us</router-link
+              >
             </li>
 
             <!-- Mobile Patient Portal Links -->
@@ -89,37 +114,62 @@
               <h6 class="portal-heading">Patient Portal</h6>
             </li>
             <li class="nav-item patient-portal-mobile d-lg-none">
-              <router-link class="nav-link portal-link" to="/dashboard" active-class="active" @click="closeNavOnMobile">
-                <i class="fa fa-tachometer me-2"></i> Dashboard
+              <router-link
+                class="nav-link portal-link"
+                to="/dashboard"
+                active-class="active"
+                @click="closeNavOnMobile"
+              >
+                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
               </router-link>
             </li>
             <li class="nav-item patient-portal-mobile d-lg-none">
-              <router-link class="nav-link portal-link" to="/appointments" active-class="active" @click="closeNavOnMobile">
-                <i class="fa fa-calendar me-2"></i> My Appointments
+              <router-link
+                class="nav-link portal-link"
+                to="/appointments"
+                active-class="active"
+                @click="closeNavOnMobile"
+              >
+                <i class="fas fa-calendar me-2"></i> My Appointments
               </router-link>
             </li>
             <li class="nav-item patient-portal-mobile d-lg-none">
-              <router-link class="nav-link portal-link" to="/medical-records" active-class="active" @click="closeNavOnMobile">
-                <i class="fa fa-file-text-o me-2"></i> Medical Records
+              <router-link
+                class="nav-link portal-link"
+                to="/medical-records"
+                active-class="active"
+                @click="closeNavOnMobile"
+              >
+                <i class="fas fa-file-medical me-2"></i> Medical Records
               </router-link>
             </li>
             <li class="nav-item patient-portal-mobile d-lg-none">
-              <router-link class="nav-link portal-link" to="/profile" active-class="active" @click="closeNavOnMobile">
-                <i class="fa fa-user me-2"></i> My Profile
+              <router-link
+                class="nav-link portal-link"
+                to="/profile"
+                active-class="active"
+                @click="closeNavOnMobile"
+              >
+                <i class="fas fa-user me-2"></i> My Profile
               </router-link>
             </li>
 
             <!-- Logout option for mobile - only shown when authenticated -->
             <li v-if="isAuthenticated" class="nav-item patient-portal-mobile d-lg-none">
               <a href="#" class="nav-link portal-link" @click.prevent="handleLogout">
-                <i class="fa fa-sign-out me-2"></i> Logout
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
               </a>
             </li>
 
             <!-- Login option for mobile - only shown when not authenticated -->
             <li v-if="!isAuthenticated" class="nav-item patient-portal-mobile d-lg-none">
-              <router-link class="nav-link portal-link" to="/login" active-class="active" @click="closeNavOnMobile">
-                <i class="fa fa-sign-in me-2"></i> Sign In
+              <router-link
+                class="nav-link portal-link"
+                to="/login"
+                active-class="active"
+                @click="closeNavOnMobile"
+              >
+                <i class="fas fa-sign-in-alt me-2"></i> Sign In
               </router-link>
             </li>
 
@@ -127,18 +177,33 @@
               <h6 class="portal-heading">Health Resources</h6>
             </li>
             <li class="nav-item patient-portal-mobile d-lg-none">
-              <router-link class="nav-link portal-link" to="/services" active-class="active" @click="closeNavOnMobile">
-                <i class="fa fa-stethoscope me-2"></i> Our Services
+              <router-link
+                class="nav-link portal-link"
+                to="/services"
+                active-class="active"
+                @click="closeNavOnMobile"
+              >
+                <i class="fas fa-stethoscope me-2"></i> Our Services
               </router-link>
             </li>
             <li class="nav-item patient-portal-mobile d-lg-none">
-              <router-link class="nav-link portal-link" to="/doctors" active-class="active" @click="closeNavOnMobile">
-                <i class="fa fa-user-md me-2"></i> Our Doctors
+              <router-link
+                class="nav-link portal-link"
+                to="/doctors"
+                active-class="active"
+                @click="closeNavOnMobile"
+              >
+                <i class="fas fa-user-doctor me-2"></i> Our Doctors
               </router-link>
             </li>
             <li class="nav-item patient-portal-mobile d-lg-none">
-              <router-link class="nav-link portal-link" to="/health-tips" active-class="active" @click="closeNavOnMobile">
-                <i class="fa fa-heartbeat me-2"></i> Health Tips
+              <router-link
+                class="nav-link portal-link"
+                to="/health-tips"
+                active-class="active"
+                @click="closeNavOnMobile"
+              >
+                <i class="fas fa-heartbeat me-2"></i> Health Tips
               </router-link>
             </li>
           </ul>
@@ -152,9 +217,9 @@
                 placeholder="Search..."
                 aria-label="Search"
                 v-model="searchQuery"
-              >
+              />
               <button class="btn btn-search" type="submit">
-                <i class="fa fa-search"></i>
+                <i class="fas fa-search"></i>
               </button>
             </form>
 
@@ -162,50 +227,59 @@
             <div class="auth-buttons">
               <!-- Patient Portal Dropdown - Always visible -->
               <div class="dropdown d-none d-lg-inline-block me-2">
-                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="patientPortalDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-user-circle me-1"></i> <span class="d-none d-xl-inline">Patient Portal</span>
+                <button
+                  class="btn btn-outline-primary dropdown-toggle"
+                  type="button"
+                  id="patientPortalDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user-circle me-1"></i>
+                  <span class="d-none d-xl-inline">Patient Portal</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="patientPortalDropdown">
                   <li>
                     <router-link class="dropdown-item" to="/dashboard">
-                      <i class="fa fa-tachometer me-2"></i> Dashboard
+                      <i class="fas fa-tachometer-alt me-2"></i> Dashboard
                     </router-link>
                   </li>
                   <li>
                     <router-link class="dropdown-item" to="/appointments">
-                      <i class="fa fa-calendar me-2"></i> My Appointments
+                      <i class="fas fa-calendar me-2"></i> My Appointments
                     </router-link>
                   </li>
                   <li>
                     <router-link class="dropdown-item" to="/medical-records">
-                      <i class="fa fa-file-text-o me-2"></i> Medical Records
+                      <i class="fas fa-file-medical me-2"></i> Medical Records
                     </router-link>
                   </li>
                   <li>
                     <router-link class="dropdown-item" to="/health-tips">
-                      <i class="fa fa-heartbeat me-2"></i> Health Tips
+                      <i class="fas fa-heartbeat me-2"></i> Health Tips
                     </router-link>
                   </li>
-                  <li><hr class="dropdown-divider"></li>
+                  <li><hr class="dropdown-divider" /></li>
                   <li>
                     <router-link class="dropdown-item" to="/profile">
-                      <i class="fa fa-user me-2"></i> My Profile
+                      <i class="fas fa-user me-2"></i> My Profile
                     </router-link>
                   </li>
                   <!-- Logout option only shown when user is authenticated -->
                   <li v-if="isAuthenticated">
-                    <hr class="dropdown-divider">
+                    <hr class="dropdown-divider" />
                   </li>
                   <li v-if="isAuthenticated">
                     <a href="#" class="dropdown-item" @click.prevent="handleLogout">
-                      <i class="fa fa-sign-out me-2"></i> Logout
+                      <i class="fas fa-sign-out-alt me-2"></i> Logout
                     </a>
                   </li>
                 </ul>
               </div>
 
               <!-- Sign In button only shown when user is NOT authenticated -->
-              <router-link v-if="!isAuthenticated" to="/login" class="btn btn-outline-primary">Sign In</router-link>
+              <router-link v-if="!isAuthenticated" to="/login" class="btn btn-outline-primary"
+                >Sign In</router-link
+              >
 
               <!-- User info and logout button shown when user IS authenticated -->
               <div v-else class="d-flex align-items-center">
@@ -213,7 +287,7 @@
                   <span class="user-name">Welcome, {{ userName }}</span>
                 </div>
                 <button @click="handleLogout" class="btn btn-outline-danger btn-sm">
-                  <i class="fa fa-sign-out"></i> <span class="d-none d-md-inline">Logout</span>
+                  <i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Logout</span>
                 </button>
               </div>
             </div>
@@ -225,7 +299,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'NavBarComponent',
@@ -234,31 +308,31 @@ export default {
       isNavOpen: false,
       isSearchOpen: false,
       isScrolled: false,
-      searchQuery: ''
+      searchQuery: '',
     }
   },
   computed: {
     ...mapGetters({
       isAuthenticated: 'auth/isAuthenticated',
-      currentUser: 'auth/currentUser'
+      currentUser: 'auth/currentUser',
     }),
     userName() {
       if (this.currentUser) {
-        return this.currentUser.name || 'User';
+        return this.currentUser.name || 'User'
       }
-      return 'User';
-    }
+      return 'User'
+    },
   },
   methods: {
     ...mapActions({
-      logout: 'auth/logout'
+      logout: 'auth/logout',
     }),
     search() {
       if (this.searchQuery.trim()) {
         // Since we don't have a search page, redirect to services with a query
         this.$router.push({
           path: '/services',
-          query: { search: this.searchQuery }
+          query: { search: this.searchQuery },
         })
 
         // Store the search query for display purposes
@@ -287,26 +361,26 @@ export default {
     },
     toggleDropdown(event) {
       // This method is for handling dropdown clicks manually if needed
-      const dropdown = event.currentTarget.parentElement;
-      const menu = dropdown.querySelector('.dropdown-menu');
-      const isExpanded = event.currentTarget.getAttribute('aria-expanded') === 'true';
+      const dropdown = event.currentTarget.parentElement
+      const menu = dropdown.querySelector('.dropdown-menu')
+      const isExpanded = event.currentTarget.getAttribute('aria-expanded') === 'true'
 
-      event.currentTarget.setAttribute('aria-expanded', !isExpanded);
-      menu.classList.toggle('show');
+      event.currentTarget.setAttribute('aria-expanded', !isExpanded)
+      menu.classList.toggle('show')
 
       // Prevent the default behavior
-      event.preventDefault();
+      event.preventDefault()
     },
     async handleLogout() {
       try {
-        await this.logout();
-        this.$router.push('/');
+        await this.logout()
+        this.$router.push('/')
         // Show a success message
-        alert('You have been successfully logged out.');
+        alert('You have been successfully logged out.')
       } catch (error) {
-        console.error('Logout failed:', error);
+        console.error('Logout failed:', error)
       }
-    }
+    },
   },
   mounted() {
     // Add scroll event listener for sticky navbar
@@ -334,8 +408,8 @@ export default {
           }
         })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -357,7 +431,7 @@ header {
 }
 
 .navbar .container {
-  max-width: 1280px;
+  max-width: 1400px;
   width: 100%;
   padding: 0 20px;
 }
@@ -419,17 +493,21 @@ header {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  transition: width 0.3s, opacity 0.3s;
+  transition:
+    width 0.3s,
+    opacity 0.3s;
   opacity: 0;
   border-radius: 3px;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: #007bff;
   background-color: rgba(0, 123, 255, 0.05);
 }
 
-.nav-link:hover:after, .nav-link.active:after {
+.nav-link:hover:after,
+.nav-link.active:after {
   width: 60%;
   opacity: 1;
 }
@@ -445,7 +523,7 @@ header {
   transition: transform 0.3s;
 }
 
-.nav-item.dropdown .dropdown-toggle[aria-expanded="true"]::after {
+.nav-item.dropdown .dropdown-toggle[aria-expanded='true']::after {
   transform: rotate(180deg);
 }
 
@@ -513,7 +591,8 @@ header {
   transition: all 0.2s;
 }
 
-.btn-icon:hover, .btn-icon:focus {
+.btn-icon:hover,
+.btn-icon:focus {
   background-color: rgba(0, 123, 255, 0.1);
   color: #007bff;
 }
@@ -756,7 +835,8 @@ header {
   text-align: center;
 }
 
-.dropdown-item:hover, .dropdown-item:focus {
+.dropdown-item:hover,
+.dropdown-item:focus {
   background-color: #f0f7ff;
   color: #007bff;
 }
@@ -810,13 +890,15 @@ header {
   transition: transform 0.2s;
 }
 
-.portal-link:hover, .portal-link.active {
+.portal-link:hover,
+.portal-link.active {
   background: linear-gradient(120deg, #f0f7ff, #e8f0fe);
   color: #007bff !important;
   transform: translateX(5px);
 }
 
-.portal-link:hover i, .portal-link.active i {
+.portal-link:hover i,
+.portal-link.active i {
   transform: scale(1.2);
 }
 
@@ -888,7 +970,8 @@ header {
     padding: 0.75rem 1rem;
   }
 
-  .nav-link:hover, .nav-link.active {
+  .nav-link:hover,
+  .nav-link.active {
     background-color: #f8f9fa;
   }
 
@@ -936,7 +1019,8 @@ header {
     font-size: 0.9rem;
   }
 
-  .btn-icon, .navbar-toggler {
+  .btn-icon,
+  .navbar-toggler {
     width: 36px;
     height: 36px;
   }
